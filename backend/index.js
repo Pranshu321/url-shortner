@@ -1,6 +1,7 @@
 const express = require("express");
 const { connectToMongoDB } = require("./connect");
 const urlRoute = require("./routes/url");
+const auth = require("./routes/auth");
 const URL = require("./models/url");
 const { GetBrowser, GetConvertedDateTime } = require("./utils/util");
 require("cors")({
@@ -18,6 +19,7 @@ connectToMongoDB(process.env.MONGO_URL).then(() =>
 app.use(express.json());
 
 app.use("/url", urlRoute);
+app.use("/auth", auth);
 
 app.get("/:shortId", async (req, res) => {
   const shortId = req.params.shortId;
