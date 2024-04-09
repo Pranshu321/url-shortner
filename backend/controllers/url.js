@@ -12,6 +12,7 @@ async function handleGenerateNewShortURL(req, res) {
     shortId: shortID,
     redirectURL: body.url,
     domainName: url.parse(body.url).hostname,
+    userCreated: body.user,
     isSecure: IsSecure(body.url),
     visitHistory: [],
   });
@@ -29,7 +30,16 @@ async function handleGetAnalytics(req, res) {
   });
 }
 
+async function handleGetUrls(req, res) {
+  const user = req.body.user;
+  const urls = await URL.find({
+    userCreated: user,
+  });
+  return res.json(urls);
+}
+
 module.exports = {
   handleGenerateNewShortURL,
   handleGetAnalytics,
+  handleGetUrls,
 };

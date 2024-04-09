@@ -20,8 +20,8 @@ const urlSchema = new mongoose.Schema(
       required: true,
     },
     userCreated: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "user",
+      type: String,
+      required: true,
     },
     visitHistory: [
       {
