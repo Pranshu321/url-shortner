@@ -4,6 +4,7 @@ const {
   handleGetAnalytics,
   handleGetUrls,
 } = require("../controllers/url");
+const cors = require("cors");
 
 const router = express.Router();
 

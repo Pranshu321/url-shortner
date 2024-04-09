@@ -4,18 +4,17 @@ const urlRoute = require("./routes/url");
 const auth = require("./routes/auth");
 const URL = require("./models/url");
 const { GetBrowser, GetConvertedDateTime } = require("./utils/util");
-require("cors")({
-  origin: true,
-});
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-const PORT = 8001;
+const PORT = 5000;
 
 connectToMongoDB(process.env.MONGO_URL).then(() =>
   console.log("Mongodb connected")
 );
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/url", urlRoute);
