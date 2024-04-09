@@ -10,7 +10,7 @@ const Dashboard = () => {
   const redirect = useNavigate();
   const [uid, setUid] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [urls, setUrls] = useState([]); // [ {shortUrl: "http://localhost:5000/short/abc", longUrl: "http://www.google.com"}
+  const [urls, setUrls] = useState([]); // [ {shortUrl: "https://url-shortner-6gy3.onrender.com/short/abc", longUrl: "http://www.google.com"}
   const IsUserLoggedIn = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -29,9 +29,12 @@ const Dashboard = () => {
   const GetUrlData = async () => {
     // get url data
     setLoading(true);
-    const res = await axios.post("http://localhost:5000/url/geturls", {
-      user: uid,
-    });
+    const res = await axios.post(
+      "https://url-shortner-6gy3.onrender.com/url/geturls",
+      {
+        user: uid,
+      }
+    );
     console.log(res.data);
     setUrls(res.data);
     setLoading(false);

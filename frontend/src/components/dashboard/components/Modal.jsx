@@ -16,7 +16,7 @@ const Modal = () => {
       return toast.error("Please login to create a link");
     }
 
-    const res = await axios.post("http://localhost:5000/url", {
+    const res = await axios.post("https://url-shortner-6gy3.onrender.com/url", {
       url: url,
       user: auth?.currentUser?.uid,
     });

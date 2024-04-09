@@ -47,11 +47,14 @@ const SignUp = () => {
       return toast.error("Please fill all the fields");
     }
 
-    const res = await axios.post("http://localhost:5000/auth/register", {
-      username: username,
-      email: email,
-      password: password,
-    });
+    const res = await axios.post(
+      "https://url-shortner-6gy3.onrender.com/auth/register",
+      {
+        username: username,
+        email: email,
+        password: password,
+      }
+    );
 
     console.log("tes", res.data);
   };
