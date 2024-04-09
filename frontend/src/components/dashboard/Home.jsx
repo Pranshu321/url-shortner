@@ -1,16 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../../config";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import Modal from "./components/Modal";
+import axios from "axios";
+import Cards from "./components/Cards";
 
 const Dashboard = () => {
   const redirect = useNavigate();
+  const [uid, setUid] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [urls, setUrls] = useState([]); // [ {shortUrl: "http://localhost:5000/short/abc", longUrl: "http://www.google.com"}
   const IsUserLoggedIn = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
+        setUid(user?.uid);
         // ...
       } else {
         // User is signed out
@@ -20,8 +26,20 @@ const Dashboard = () => {
     });
   };
 
+  const GetUrlData = async () => {
+    // get url data
+    setLoading(true);
+    const res = await axios.post("http://localhost:5000/url/geturls", {
+      user: uid,
+    });
+    console.log(res.data);
+    setUrls(res.data);
+    setLoading(false);
+  };
+
   useEffect(() => {
     IsUserLoggedIn();
+    GetUrlData();
   }, [auth.currentUser]);
 
   return (
@@ -56,6 +74,19 @@ const Dashboard = () => {
         Create Short URL
       </label>
       <Modal />
+
+      <div className="my-10 flex flex-wrap gap-4">
+        {urls?.map((url) => (
+          <Cards
+            key={url._id}
+            _id={url._id}
+            shortUrl={url.shortId}
+            domainName={url.domainName}
+            isSecure={url.isSecure}
+            visitHistory={url.visitHistory}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -16,6 +16,6 @@ router.post("/", handleGenerateNewShortURL);
 
 router.get("/analytics/:shortId", handleGetAnalytics);
 
-router.get("/geturls", handleGetUrls);
+router.post("/geturls", handleGetUrls);
 
 module.exports = router;

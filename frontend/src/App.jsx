@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/dashboard/Home";
 import Login from "./components/ui/components/Login";
 import SignUp from "./components/ui/components/SignUp";
+import Analytics from "./components/dashboard/Analytics";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/analytics/:shortUrl" element={<Analytics />} />
       </Routes>
     </div>
   );
