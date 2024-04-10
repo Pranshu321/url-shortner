@@ -5,7 +5,7 @@ import AnalyticsModal from "./AnalyticsModal";
 import { Link } from "react-router-dom";
 
 const Cards = ({ _id, shortUrl, domainName, isSecure, visitHistory: [] }) => {
-  const path = "http://localhost:5000";
+  const path = "https://url-shortner-6gy3.onrender.com";
   return (
     <div>
       <Toaster position="top-center" reverseOrder={false} />
