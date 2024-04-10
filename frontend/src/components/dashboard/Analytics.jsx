@@ -5,12 +5,12 @@ import axios from "axios";
 const Analytics = () => {
   const { shortUrl } = useParams();
   const [analyticsData, setAnalyticsData] = React.useState({}); // [ {date: "2021-09-01", clicks: 10}
-  const path = "https://url-shortner-6gy3.onrender.com";
+  const path = "http://localhost:5000";
 
   const getAnalytics = async () => {
     // get analytics data
     const res = await axios.get(
-      `https://url-shortner-6gy3.onrender.com/url/analytics/${shortUrl}`
+      `http://localhost:5000/url/analytics/${shortUrl}`
     );
     console.log(res.data);
     setAnalyticsData(res.data);

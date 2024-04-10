@@ -3,6 +3,7 @@ import { auth } from "../../config";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import Modal from "./components/Modal";
+import logo from "../../assets/logo.png";
 import axios from "axios";
 import Cards from "./components/Cards";
 
@@ -10,7 +11,7 @@ const Dashboard = () => {
   const redirect = useNavigate();
   const [uid, setUid] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [urls, setUrls] = useState([]); // [ {shortUrl: "https://url-shortner-6gy3.onrender.com/short/abc", longUrl: "http://www.google.com"}
+  const [urls, setUrls] = useState([]); // [ {shortUrl: "http://localhost:5000/short/abc", longUrl: "http://www.google.com"}
   const IsUserLoggedIn = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -29,12 +30,9 @@ const Dashboard = () => {
   const GetUrlData = async () => {
     // get url data
     setLoading(true);
-    const res = await axios.post(
-      "https://url-shortner-6gy3.onrender.com/url/geturls",
-      {
-        user: uid,
-      }
-    );
+    const res = await axios.post("http://localhost:5000/url/geturls", {
+      user: uid,
+    });
     console.log(res.data);
     setUrls(res.data);
     setLoading(false);
@@ -47,10 +45,13 @@ const Dashboard = () => {
 
   return (
     <div className="p-5">
-      <div className="flex justify-between">
-        <h1 className="flex font-semibold text-white text-2xl">
-          Yurl Dashboard
-        </h1>
+      <div className="mb-5 flex justify-between">
+        <div className="flex gap-x-2 items-center">
+          <img src={logo} alt="logo" width={30} height={30} className="" />
+          <h1 className="flex font-semibold text-white text-2xl">
+            Yurl Dashboard
+          </h1>
+        </div>
         <div className="flex gap-x-5 items-center">
           <span className="text-white font-semibold text-base">
             Hello, {auth?.currentUser?.displayName}
@@ -60,7 +61,7 @@ const Dashboard = () => {
               onClick={() => {
                 auth.signOut();
               }}
-              className="w-14 rounded-full"
+              className="w-14 rounded-full cursor-pointer"
             >
               <img
                 src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"

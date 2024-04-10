@@ -4,6 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../config";
 import { GoogleAuthProvider } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -49,7 +50,7 @@ export default function Home() {
   return (
     <main className="home-bg min-h-screen max-h-max flex flex-col items-center gap-y-10">
       <header className="p-4 w-full">
-        <div className="flex gap-x-3 items-center w-full">
+        <div className="flex items-center w-full">
           <h2 className="text-3xl pl-5 font-sans font-semibold">
             YuRL Shortner
           </h2>
@@ -62,9 +63,7 @@ export default function Home() {
               <div className="max-w-md">
                 <div className="flex justify-center">
                   <img
-                    src={
-                      "https://w7.pngwing.com/pngs/981/939/png-transparent-hyperlink-computer-icons-direct-link-others-miscellaneous-text-logo.png"
-                    }
+                    src={logo}
                     alt="logo"
                     width={100}
                     className="pb-5 mix-blend-luminosity"
