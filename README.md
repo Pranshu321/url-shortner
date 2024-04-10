@@ -8,8 +8,8 @@
   <i align="center">Use our URL shortener and Link-in pages to engage your audience and Analyse the enagement 🚀</i>
 </p>
 
-<p>
-    <img src="https://github.com/Pranshu321/Monitoring-System/assets/86917304/8fcc3114-0589-48c2-bdb0-47fd943b7a30" alt="dashboard"/>
+<p>    
+    <img src="https://github.com/Pranshu321/url-shortner/assets/86917304/2bf47674-4a53-4217-a523-e38ff29f1cd7" alt="dashboard"/>
 </p>
 
 ## Introduction
@@ -22,8 +22,18 @@ Welcome to `URL Shortener`, your streamlined solution for shortening URLs and tr
 </summary> <br>
 
 *   **URL Shortening:** Easily shorten long URLs to make them more manageable and shareable.
+
+![image](https://github.com/Pranshu321/url-shortner/assets/86917304/0600e752-50b8-4ce7-9500-65a8eb95ca17)
+
 *   **Analytics:** Get detailed analytics on your shortened URLs, including total clicks, browsers used for accessing the link, and date and time of access.
+
+![image](https://github.com/Pranshu321/url-shortner/assets/86917304/1a8446c0-700c-40f9-bba2-fa093b0a028d)
+
+
 *   **Click Trends:** View a chart displaying the number of clicks per month for each shortened URL, helping you analyze trends over time.
+
+![image](https://github.com/Pranshu321/url-shortner/assets/86917304/85b7d6a6-7f4c-473e-af7c-82d757a849c8)
+
     
 </details>
 
@@ -42,9 +52,14 @@ Alternatively, instead of using the hosted version of the product, YuRL can be r
 ### Tech Stack
 
 ###
-
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+
 
 <details open>
 <summary>
@@ -53,8 +68,6 @@ Running CPMS
 
 > **Note**
 > It is also possible to start development with GitHub Codespaces, when navigating to `< > Code`, copy the `https` repo link.
-
-Amplication is using a monorepo architecture - powered by <a href="https://nx.dev">Nx Workspaces</a> - where multiple applications and libraries exist in a single repository. To setup a local development environment the following steps can be followed:
 
 **BEFORE** you run the following steps make sure:
 2. You are using a supported node version (check `engines` `node` in the [package.json](./package.json))
@@ -104,11 +117,5 @@ npm start
 
 </details>
 
-
-<a name="contributing_anchor"></a>
-
-
 ## Team
-
-### Members
 - Pranshu Jain
