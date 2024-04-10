@@ -38,8 +38,21 @@ async function handleGetUrls(req, res) {
   return res.json(urls);
 }
 
+async function handleDeleteUrl(req, res) {
+  const body = req.body;
+  if (!body.id) return res.status(400).json({ error: "id is required" });
+  const result = await URL.deleteOne({
+    shortId: body.id,
+  });
+  if (result.deletedCount === 0)
+    return res.status(404).json({ error: "url not found" });
+
+  return res.json({ id: body.id });
+}
+
 module.exports = {
   handleGenerateNewShortURL,
   handleGetAnalytics,
   handleGetUrls,
+  handleDeleteUrl,
 };

@@ -3,6 +3,7 @@ const {
   handleGenerateNewShortURL,
   handleGetAnalytics,
   handleGetUrls,
+  handleDeleteUrl,
 } = require("../controllers/url");
 const cors = require("cors");
 
@@ -15,6 +16,8 @@ router.get("/", (req, res) => {
 router.post("/", handleGenerateNewShortURL);
 
 router.get("/analytics/:shortId", handleGetAnalytics);
+
+router.post("/delete", handleDeleteUrl);
 
 router.post("/geturls", handleGetUrls);
 

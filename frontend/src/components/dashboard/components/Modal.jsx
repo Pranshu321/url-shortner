@@ -16,15 +16,27 @@ const Modal = () => {
       return toast.error("Please login to create a link");
     }
 
+    // check if url is valid or not
+    const regex =
+      /^(http|https):\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,}(\:[0-9]{1,5})?(\/.*)?$/;
+    if (!regex.test(url)) {
+      toast.error("Please provide a valid URL");
+      return;
+    }
+
     const res = await axios.post("https://url-shortner-6gy3.onrender.com/url", {
       url: url,
       user: auth?.currentUser?.uid,
     });
-
-    console.log(res.status);
+    if (res.status !== 200) toast.error("Please provide a valid URL");
+    toast.success("Link created successfully");
     if (res.status === 200) {
-      toast.success("Link created successfully");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+      return;
     }
+    toast.error("Failed to create link");
     // clear the input field
     setUrl("");
   };
