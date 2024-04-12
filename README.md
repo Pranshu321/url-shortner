@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="https://telaverge-cpu-monitering.vercel.app">
+    <a href="https://url-shortner32.vercel.app/">
        <h2>YuRL - URL Shortner App</h2>
     </a>
 </h1>
